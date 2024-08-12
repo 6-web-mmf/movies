@@ -1,0 +1,28 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 5%;
+}
+
+.header__logo {
+    max-width: 7%;
+}
+
+header>input {
+    padding: 5px 10px;
+    font-size: 20px;
+    outline: none;
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+}
+
+.header__right>a {
+    color: black;
+}

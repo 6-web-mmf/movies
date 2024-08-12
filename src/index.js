@@ -1,11 +1,11 @@
-import { MovieApi } from "./api/MovieApi.js";
 import { CategoryController } from "./controller/CategoryController.js";
-import { CounterController } from "./controller/CounterController.js";
+import { HeaderController } from "./controller/HeaderController.js";
 
-const counterController = new CounterController()
-const categoryController = new CategoryController()
+const headerController = new HeaderController()
 
-categoryController.render()
-counterController.render()
-const movies = await MovieApi.getMovies()
-console.log(movies);
+headerController.render()
+
+if (window.location.pathname.includes("main")) {
+    const categoryController = new CategoryController()
+    categoryController.render()
+}

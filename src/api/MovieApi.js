@@ -5,4 +5,14 @@ export class MovieApi {
         const response = await fetch(`${this.BASE_URL}/movies`)
         return response.json()
     }
+
+    static getMovieById = async id => {
+        const response = await fetch(`${this.BASE_URL}/movies/${id}`)
+        return response.json()
+    }
+
+    static getMoviesByQuery = async query => {
+        const response = await fetch(`${this.BASE_URL}/movies?search=${query}`)
+        return response.json()
+    }
 }
