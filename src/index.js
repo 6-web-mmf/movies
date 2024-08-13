@@ -5,15 +5,14 @@ import { checkIfAuthPage, checkIfUserIsLoggedIn } from "./utils/authMiddleware.j
 
 
 if (!window.location.pathname.includes("auth")) {
-    checkIfUserIsLoggedIn()
+    //checkIfUserIsLoggedIn()
     const headerController = new HeaderController()
     headerController.render()
 } else {
-    checkIfAuthPage()
+    //checkIfAuthPage()
     const authController = new AuthController()
     authController.handleAuth()
 }
-
 
 if (window.location.pathname.includes("main")) {
     const categoryController = new CategoryController()
