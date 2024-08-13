@@ -1,7 +1,17 @@
 import { LocalStorageService } from "./LocalStorageService.js";
 
 export const checkIfUserIsLoggedIn = () => {
-    if (!LocalStorageService.getItem("user")?.email) {
+    const user = LocalStorageService.getItem("user")
+    if (!user?.email) {
         window.location.replace("auth-login.html")
+        return
+    } 
+}
+
+export const checkIfAuthPage = () => {
+    const user = LocalStorageService.getItem("user")
+    if (user && window.location.pathname.includes("auth")) {
+        window.location.replace("main.html")
+        return
     }
 }
