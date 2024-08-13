@@ -8,6 +8,9 @@ export class MovieApi {
 
     static getMovieById = async id => {
         const response = await fetch(`${this.BASE_URL}/movies/${id}`)
+        if(response.status === 404){
+            location.replace("notFound.html")
+        }
         return response.json()
     }
 
