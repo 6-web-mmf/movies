@@ -1,20 +1,26 @@
 export const categoriesList = [
     {
-        title: "All"
+        title: "ALL",
+        class: "all"
     },
     {
-        title: "ROMANCE"
+        title: "Drama",
+        class: "drama"
     },
     {
-        title: "Alldcdc"
+        title: "ACTION",
+        class: "action"
     },
     {
-        title: "ROMANCE"
+        title: "THRILLER",
+        class: "thriller"
     },
     {
-        title: "Acv"
+        title: "HORROR",
+        class: "horror"
     },
     {
-        title: "ROMANCE"
+        title: "ADVENTURE",
+        class: "adventure"
     }
 ]
