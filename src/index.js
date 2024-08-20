@@ -1,6 +1,7 @@
 import { AuthController } from "./controller/AuthController.js";
 import { CategoryController } from "./controller/CategoryController.js";
 import { HeaderController } from "./controller/HeaderController.js";
+import { MoviesController } from "./controller/MoviesController.js";
 import { NotFoundController } from "./controller/NotFoundController.js";
 import { checkIfAuthPage, checkIfUserIsLoggedIn } from "./utils/authMiddleware.js";
 
@@ -21,5 +22,7 @@ if (!window.location.pathname.includes("auth")) {
 
 if (window.location.pathname.includes("main")) {
     const categoryController = new CategoryController()
+    const moviesController = new MoviesController()
     categoryController.render()
+    moviesController.render( )
 }

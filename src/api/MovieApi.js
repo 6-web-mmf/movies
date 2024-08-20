@@ -18,4 +18,9 @@ export class MovieApi {
         const response = await fetch(`${this.BASE_URL}/movies?search=${query}`)
         return response.json()
     }
+
+    static getMoviesByGenre = async genre => {
+        const response = await fetch(`${this.BASE_URL}/movies?genre=${genre}`)
+        return response.json()
+    }
 }

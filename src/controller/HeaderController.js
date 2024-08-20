@@ -19,8 +19,14 @@ export class HeaderController{
         logo.src = "../static/images/logo.webp"
         logo.classList.add("header__logo")
 
-        const input = document.createElement("input")
-        input.placeholder = "Search"
+        const searchContainer = document.createElement("div")
+        searchContainer.classList.add("header__search-container")
+        searchContainer.innerHTML +=
+        `
+        <img src="../static/images/input.png" alt="Search">
+        <input placeholder = "Search">
+        `
+       
         const rightBlock = document.createElement("div")
         rightBlock.innerHTML += `
             <nav class="header__right">
@@ -31,14 +37,14 @@ export class HeaderController{
             </nav>
         `
         this.#headerElement.appendChild(logo)
-        this.#headerElement.appendChild(input)
+        this.#headerElement.appendChild(searchContainer)
         this.#headerElement.appendChild(rightBlock)
 
         this.#listener()
     }
 
     #listener = () => {
-        document.querySelector("header>input").addEventListener("input", async e => {
+        document.querySelector(".header__search-container").addEventListener("input", async e => {
             await this.#searchService.search(e.target.value.trim())
             console.log(initialState)
         })
