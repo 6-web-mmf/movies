@@ -1,5 +1,14 @@
 import { initialState } from "../state/state.js"
 
+function cutDescription(description, maxWords) {
+    const words = description.split(' ');
+    if (words.length <= maxWords) {
+        return description;
+    } else {
+        return words.slice(0, maxWords).join(' ') + '...';
+    }
+}
+
 export class MoviesService {
 
     getMovies = () => {
@@ -10,14 +19,21 @@ export class MoviesService {
                 <a href="movie.html?id=${movie.id}">
                     <div class="movie">
                         <img class="movie-poster" src=${movie.poster}>
-                        <h1 class="movie-title">${movie.title}</h1>
+                        <div class="movie-overlay">
                             <div class="movie__info">
-                                <p class="movie__info-year">${movie.year}</p>
-                                <div class="movie__info__rating">
-                                    <img src="../static/images/star.png">
-                                    <p>${movie.rating}</p>    
+                                <h1 class="movie__info-title">${movie.title}</h1>
+                                <div class="movie__info__details">
+                                    <div class="movie__info__details-rating">
+                                        <img src="../static/images/star.png" alt="star">   
+                                        ${movie.rating}/10                         
+                                    </div>
+                                    <p class="movie__info__details-year">${movie.year}</p>
+                                    <p class="movie__info__details-duration">${movie.runtime} Min</p>    
                                 </div>
+                                <p class="movie__info-description">${cutDescription(movie.plot, 15)}</p>
+                                <img class="movie__info-favorite" src="../static/images/heart.png" alt="heart">
                             </div>
+                        </div>
                     </div>
                 </a>
             `)
