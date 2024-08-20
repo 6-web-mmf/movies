@@ -2,13 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
 }
 
 a {
     text-decoration: none;
 }
-
 main{
     background-color: #2f353f;
     padding: 60px 5%;
