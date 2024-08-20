@@ -7,7 +7,7 @@ export class MoviesService {
         return initialState.movies
             .map(movie =>
                 `
-                <a href="http://127.0.0.1:5500/src/pages/movie.html?id=${movie.id}">
+                <a href="movie.html?id=${movie.id}">
                     <div class="movie">
                         <img class="movie-poster" src=${movie.poster}>
                         <h1 class="movie-title">${movie.title}</h1>
