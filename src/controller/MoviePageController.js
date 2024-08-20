@@ -1,5 +1,7 @@
 import { MoviePageService } from "../service/MoviePageService.js"
 import { initialState } from "../state/state.js";
+import {FavoritesService} from "../service/FavoritesService.js";
+import {LocalStorageService} from "../utils/LocalStorageService.js";
 
 export class MoviePageController {
 
@@ -41,13 +43,26 @@ export class MoviePageController {
                 <p class="infoItem"> <span>Actors:</span> ${this.#movieInfo.actors} </p>
                 <p class="aboutMovie"> ${this.#movieInfo.plot} </p>
                 <a href=" ${this.#movieInfo.website}" class="website"> Checkout official website</a>
+                <button class="addFavFilmBtn">Add to favorites</button>
             </div>
             
             <iframe width="1024" height="439" src="https://www.youtube.com/embed/bLvqoHBptjg" title="Forrest Gump - Trailer" frameborder="0" allow="accelerometer; 
             autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         `
+        this.#addListeners()
+    }
 
-        
+    #addListeners = () => {
+        document
+            .querySelector('.addFavFilmBtn')
+            .addEventListener('click', (e) => {
+                FavoritesService.addFavMovie(
+                    LocalStorageService.getItem("user").username,
+                    +(new URLSearchParams(window.location.search).get("id"))
+                )
+
+                alert("Film added to favorites")
+            })
     }
 
     async listener () {

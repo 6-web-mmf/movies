@@ -5,6 +5,7 @@ import { MoviesController } from "./controller/MoviesController.js";
 import { MoviePageController } from "./controller/MoviePageController.js";
 import { NotFoundController } from "./controller/NotFoundController.js";
 import { checkIfAuthPage, checkIfUserIsLoggedIn } from "./utils/authMiddleware.js";
+import {FavoritesController} from "./controller/FavoritesController.js";
 
 if (window.location.pathname.includes("notFound")) {
     const notFoundController = new NotFoundController()
@@ -30,8 +31,8 @@ if (window.location.pathname.includes("main")) {
 
 if (window.location.pathname.includes("favorites")) {
     checkIfUserIsLoggedIn()
-
-
+    const favoritesController = new FavoritesController()
+    favoritesController.render()
 }
 
 if (window.location.pathname.includes("movie.html")) {
