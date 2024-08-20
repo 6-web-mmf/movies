@@ -21,14 +21,14 @@ if (!window.location.pathname.includes("auth")) {
     authController.handleAuth()
 }
 
-if (window.location.pathname.includes("movie")) {
-    const moviePageController = new MoviePageController();
-    moviePageController.render();
-}
-
 if (window.location.pathname.includes("main")) {
     const categoryController = new CategoryController()
     const moviesController = new MoviesController()
     categoryController.render()
     moviesController.render( )
+} else {
+    if (window.location.pathname.includes("movie")) {
+        const moviePageController = new MoviePageController();
+        moviePageController.render();
+    }
 }
