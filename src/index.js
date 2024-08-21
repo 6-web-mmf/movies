@@ -6,6 +6,7 @@ import { MoviePageController } from "./controller/MoviePageController.js";
 import { NotFoundController } from "./controller/NotFoundController.js";
 import { checkIfAuthPage, checkIfUserIsLoggedIn } from "./utils/authMiddleware.js";
 import {FavoritesController} from "./controller/FavoritesController.js";
+import { FooterController } from "./controller/FooterController.js";
 
 if (window.location.pathname.includes("notFound")) {
     const notFoundController = new NotFoundController()
@@ -16,6 +17,8 @@ if (!window.location.pathname.includes("auth")) {
     checkIfUserIsLoggedIn()
     const headerController = new HeaderController()
     headerController.render()
+    const footerController = new FooterController()
+    footerController.render()
 } else {
     checkIfAuthPage()
     const authController = new AuthController()
