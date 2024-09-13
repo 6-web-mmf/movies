@@ -2,6 +2,7 @@ import { MoviePageService } from "../service/MoviePageService.js"
 import { initialState } from "../state/state.js";
 import {FavoritesService} from "../service/FavoritesService.js";
 import {LocalStorageService} from "../utils/LocalStorageService.js";
+import { MoviePhotosList } from "../constants/movies.js";
 
 export class MoviePageController {
 
@@ -19,15 +20,22 @@ export class MoviePageController {
         
         this.#movieInfo =await this.listener()
         console.log(this.#movieInfo)
-
+        const bodyElement = document.querySelector('body');
+        bodyElement.innerHTML += `
+        <div class="background-img">
+            <img src="${MoviePhotosList[this.#movieId-1].background}" class='backgroundImg' >
+        </div>
+        <div class="background-gradient"></div>
+        `
         const block = document.querySelector('.wrapper');
         
         document.title = this.#movieInfo.title ;
         console.log(this.#movieInfo.website)
+        console.log(`${MoviePhotosList[this.#movieId-1].poster}`)
         block.innerHTML += `
             <h1> ${this.#movieInfo.title} </h1>
             <div class="moviePoster">
-                <img src=${this.#movieInfo.poster}> 
+                <img src="${MoviePhotosList[this.#movieId-1].poster}"> 
                 <p> Rating : ${this.#movieInfo.rating}
             </div>
 

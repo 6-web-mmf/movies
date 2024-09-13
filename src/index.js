@@ -13,6 +13,7 @@ if (window.location.pathname.includes("notFound")) {
     notFoundController.render()
 }
 
+
 if (!window.location.pathname.includes("auth")) {
     checkIfUserIsLoggedIn()
     const headerController = new HeaderController()
